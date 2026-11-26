@@ -1,0 +1,19 @@
+# Private chat/discussion notes (kept local, not committed)
+discussion/
+
+# Secrets
+.env
+.env.*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Dependencies / builds (for when a stack is added)
+node_modules/
+__pycache__/
+dist/
+build/
