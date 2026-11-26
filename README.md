@@ -17,4 +17,4 @@ python -m http.server 8000
 ```
 Then open http://localhost:8000/ (it redirects to the site). Press `Ctrl+C` to stop the server.
 
-Opening the HTML files directly (double-clicking them) won't work, because browsers block loading the JSON data from `file://` pages.
+Opening the HTML files directly (double-clicking them) won't work, because browsers block loading the JSON data from `file://` pages
