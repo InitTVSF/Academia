@@ -14,7 +14,8 @@ Browser ──> frontend/index.html (front page: subject list)
 - No server-side code. Any static host can serve it, such as GitHub Pages.
 - The JSON files in `data/` are the single source of truth. Adding a subject means changing data only.
 - The site must be served over HTTP, even when testing locally. Browsers block `fetch()` on `file://` URLs.
-  Serve it locally from the repo root with `python -m http.server 8000`, then open `http://localhost:8000/frontend/`.
+  Serve it locally from the repo root with `python -m http.server 8000`, then open `http://localhost:8000/` (the root `index.html` redirects to `frontend/`).
+- The subject page looks the `?id=` up in `subjects.json` (an allowlist), so URL input never becomes a file path.
 
 ## Folder responsibilities
 

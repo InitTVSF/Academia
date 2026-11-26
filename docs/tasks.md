@@ -1,6 +1,6 @@
 # Tasks
 
-Last updated: 2026-11-26 08:36 IST
+Last updated: 2026-11-26 09:25 IST
 
 ## Now: v0, C++ practical questions page
 
@@ -10,19 +10,19 @@ Last updated: 2026-11-26 08:36 IST
   - [x] Check that the files show up for logged-out visitors (5 images visible at 08:48)
   - [ ] Check with a faculty member that sharing past practical questions is allowed.
 - [x] **Fill in data.** Paste the folder link into `data/subjects/cpp.json` → `practicals.driveFolderLink`.
-- [ ] **Front page.** Create `frontend/index.html`.
-  - [ ] Header with the project name and a one-line purpose.
-  - [ ] Load `data/subjects.json` with `fetch()` and show one card per subject.
-  - [ ] Each card links to `pages/subject.html?id=<id>`.
-- [ ] **Subject page.** Create `frontend/pages/subject.html`.
-  - [ ] Read `id` from the URL and load `data/subjects/<id>.json`.
-  - [ ] Show the subject name and a clear "Open C++ practical questions" button pointing to the Drive link.
-  - [ ] If the link is empty, show "Coming soon" instead of a broken button.
-- [ ] **Styling.** Add `frontend/css/style.css`: simple, readable and mobile-friendly (students will mostly use phones).
-- [ ] **Scripts.** Put the JS in `frontend/js/` (e.g., `main.js`, `subject.js`), not inline.
-- [ ] **Test locally.** From the repo root, run `python -m http.server 8000` and open `http://localhost:8000/frontend/`.
-  - [ ] Test it on a phone-sized screen.
-  - [ ] Test an unknown `?id=` and a missing JSON file. The page should show a friendly error.
+- [x] **Front page.** Create `frontend/index.html`.
+  - [x] Header with the project name and a one-line purpose.
+  - [x] Load `data/subjects.json` with `fetch()` and show one card per subject.
+  - [x] Each card links to `pages/subject.html?id=<id>`.
+- [x] **Subject page.** Create `frontend/pages/subject.html`.
+  - [x] Read `id` from the URL and load `data/subjects/<id>.json`.
+  - [x] Show the subject name and a clear "Open C++ practical questions" button pointing to the Drive link.
+  - [x] If the link is empty, show "Coming soon" instead of a broken button.
+- [x] **Styling.** Add `frontend/css/style.css`: simple, readable and mobile-friendly (students will mostly use phones).
+- [x] **Scripts.** Put the JS in `frontend/js/` (e.g., `main.js`, `subject.js`), not inline.
+- [x] **Test locally.** From the repo root, run `python -m http.server 8000` and open `http://localhost:8000/`.
+  - [x] Test it on a phone-sized screen.
+  - [ ] Test an unknown `?id=` and a missing JSON file. The page should show a friendly error. (Unknown id ✅ tested; missing JSON file not tested yet)
 - [ ] **Deploy.** Publish with GitHub Pages and add the live URL to `README.md`.
 - [ ] **Get feedback.** Share the site with a few classmates and note whether they found the questions quickly.
 

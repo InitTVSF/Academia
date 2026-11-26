@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Academia: past practical exam questions for students.">
+  <title>Academia</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<!-- data-root: path from this page back to the repo root (used to load data/). -->
+<body data-root="../">
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="./">Academia</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Know what was asked in practicals.</h1>
+      <p class="lead">Questions from previous practical exams, organised by subject.</p>
+    </section>
+
+    <section aria-labelledby="subjects-heading">
+      <h2 id="subjects-heading">Subjects</h2>
+      <div id="subject-list" class="grid" aria-live="polite">
+        <p class="muted">Loading subjects…</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container muted small">Academia: a student side project.</div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
