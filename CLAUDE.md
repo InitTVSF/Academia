@@ -11,7 +11,7 @@ A personal side project that helps students academically. Repo: `github.com/Init
 
 **Current feature (v0):** a simple website that shows students past **C++ practical exam questions**. The question images are stored in a Google Drive folder, and the site links to that folder through a JSON file.
 
-**Stage:** project structure is set up and the first web page hasn't been built yet. See `discussion/tasks.md` for the task list.
+**Stage:** v0 website built: a front page listing subjects and a subject page linking to the Drive folder. See `docs/tasks.md` for the task list.
 
 **Tech stack (v0):** a static site using plain HTML, CSS and JavaScript, with content in JSON files. There's no backend and no build step. Don't add frameworks or a backend unless the user agrees.
 
@@ -29,10 +29,14 @@ Still undecided:
 .gitignore
 CLAUDE.md
 README.md
+index.html           # redirects repo root to frontend/ (for GitHub Pages / local server)
 frontend/            # static site
-  index.html         # front page: subject list (to build)
-  pages/             # other pages, e.g. subject.html?id=cpp (to build)
-  css/  js/          # styles and scripts (no inline JS)
+  index.html         # front page: subject cards built from data/subjects.json
+  pages/subject.html # subject page, ?id=<subject id>
+  css/style.css      # all styles; colour tokens in :root, dark mode via prefers-color-scheme
+  js/common.js       # shared helpers (Academia.loadJSON, el, isSafeLink, showMessage, showError)
+  js/main.js         # front page logic
+  js/subject.js      # subject page logic
   assets/images/     # static images (logo, icons)
 data/                # content as JSON, the single source of truth
   subjects.json      # list of all subjects
@@ -40,6 +44,7 @@ data/                # content as JSON, the single source of truth
   README.md          # data schema and how to add a subject
 backend/             # reserved for future API (not started)
 docs/architecture.md # architecture and how pages load data
+docs/tasks.md        # running task list (tick items off as they're done)
 discussion/          # LOCAL ONLY (git-ignored) chat logs and tasks
 ```
 
@@ -81,7 +86,15 @@ python -m http.server 8000
 # open http://localhost:8000/frontend/
 ```
 
-Pages fetch JSON with paths relative to where they are, e.g. `../data/subjects.json` from `frontend/index.html`.
+Then open http://localhost:8000/ (it redirects to `/frontend/`).
+
+### Frontend conventions
+- Each page sets `<body data-root="...">` to the path back to the repo root. Load data with `Academia.loadJSON("data/...")` and never hard-code `../` paths.
+- Build DOM with `Academia.el()` and `textContent`. **Never use `innerHTML` with data from JSON or the URL.**
+- Subject pages look the `?id=` up in `subjects.json`. Never build a file path from URL input.
+- Only render links that pass `Academia.isSafeLink()` (https only). External links use `target="_blank" rel="noopener noreferrer"`.
+- No inline scripts or styles. Plain JS with no build step and no frameworks.
+- Test on a phone-width screen as well as desktop.
 
 ## Content rules
 - Question images must not contain personal details (names, roll numbers, signatures).
@@ -92,7 +105,6 @@ Pages fetch JSON with paths relative to where they are, e.g. `../data/subjects.j
 
 - `discussion/` is git-ignored and holds local notes from Claude sessions.
 - One file per session: `discussion/YYYY-MM-DD_session-NN.md`.
-- `discussion/tasks.md` is the running task list. Tick items off as they're completed.
 - When the user asks to log a discussion, append an entry using this format:
   ```
   ## [HH:MM] Topic
