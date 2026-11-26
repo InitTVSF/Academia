@@ -1,0 +1,10 @@
+{
+  "subjects": [
+    {
+      "id": "cpp",
+      "name": "C++ Programming",
+      "status": "available",
+      "dataFile": "data/subjects/cpp.json"
+    }
+  ]
+}
